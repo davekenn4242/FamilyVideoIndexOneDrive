@@ -47,48 +47,8 @@ public class App {
         System.out.println("Welcome " + user.displayName);
         System.out.println();
 
-        Scanner input = new Scanner(System.in);
+        listRootChildren(accessToken);
 
-        int choice = -1;
-
-        while (choice != 0) {
-            System.out.println("Please choose one of the following options:");
-            System.out.println("0. Exit");
-            System.out.println("1. Display access token");
-            System.out.println("2. List calendar events");
-            System.out.println("3. Generate RSS files from OneDrive videos");
-
-            try {
-                choice = input.nextInt();
-            } catch (InputMismatchException ex) {
-                // Skip over non-integer input
-                input.nextLine();
-            }
-
-            // Process user choice
-            switch(choice) {
-                case 0:
-                    // Exit the program
-                    System.out.println("Goodbye...");
-                    break;
-                case 1:
-                    // Display access token
-                    System.out.println("Access token: " + accessToken);
-                    break;
-                case 2:
-                    // List the calendar
-                    listCalendarEvents(accessToken);
-                    break;
-                case 3:
-                    // Generate RSS Files
-                    listRootChildren(accessToken);
-                    break;
-                default:
-                    System.out.println("Invalid choice");
-            }
-        }
-
-        input.close();
     }
     private static String formatDateTimeTimeZone(DateTimeTimeZone date) {
         LocalDateTime dateTime = LocalDateTime.parse(date.dateTime);

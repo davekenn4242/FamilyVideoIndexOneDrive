@@ -137,11 +137,11 @@ public class Graph {
                 //i=0;
             } catch (GraphServiceException e) {
                 // may need to serialize the GraphServiceException into json in order to get the request header for Retry-After
-                System.out.println("printing error message: " + e.getMessage(true));
+                System.out.println("printing GraphServiceException error message: " + e.getMessage(true));
                 System.out.println("retrying after 60 seconds");
                 //i++;
             } catch (ClientException ce) {
-                System.out.println("printing error message: " + ce.getMessage());
+                System.out.println("printing ClientException error message: " + ce.getMessage());
                 System.out.println("retrying after 600 seconds");
                 //i++;
             }
